@@ -193,6 +193,8 @@ def account():
     form = updateForm()
     return render_template('account.html',form=form)
 
+# @users.route('/myid') # ----------    contact id
+# users.route           ------------ my id
 
 def generate_new_id():
     while True:
