@@ -48,8 +48,7 @@ class confirmationForm(FlaskForm):
     submit = SubmitField('confirm')
 
 class updateForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()], render_kw={'placeholder':'Username'})
-    picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'gif'])])
+
     submit = SubmitField('Update')
 
     def check_email(self, field):
