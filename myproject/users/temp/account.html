@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<p>{{current_user.email }}</p>
+<form method="post" enctype="multipart/form-data">
+    {{ food.hidden_tag() }}
+    {#
+      <div class="form-group">
+        {{ food.username.label }}
+        { food.username(class='form-control') }}<br>
+      </div>
+        {{ food.picture(class="pictured",id='media') }}<br>
+    #}
+    <input type="text" name="" value="current_user.email" readonly>
+    <input type="text" name="" value="{{ current_user.myid }}" readonly>
+    {{ food.submit(class="btn btn-danger") }}
+    </form><br>
+    <button id="delete" type="button" name="button">Delete my account</button>
+    <a href="/change"><button class="btn btn-secondary">Change password</button></a><br>
+
+
+<script type="text/javascript">
+  var d = new XMLHttpRequest()
+  d.onreadystatechange = function (){
+    if (this.readyState == 4 && this.status == 200) {
+       window.location = '{{ url_for('/logout',_external) }}'
+
+  }
+}
+  d.open('post','/delete')
+  d.send()
+</script>
+{% endblock %}

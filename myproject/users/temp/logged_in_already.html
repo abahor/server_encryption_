@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="middle jumbotron">
+    <h5>you are logged in {{ current_user.username }} if this wasn't you <a href="/logout">press here</a></h5>
+</div>
+<!--<style>-->
+<!--    .middle{-->
+<!--        background: #ddd;-->
+<!--        display: flex;-->
+<!--        justify-content: center;-->
+<!--    }-->
+<!--</style>-->
+{% endblock %}
