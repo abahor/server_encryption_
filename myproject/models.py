@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_login import UserMixin
 
 @login.user_loader
-def load_user():
+def load_user(user_id):
     return Users.query.get(user_id)
 
 class Users(db.Model, UserMixin):

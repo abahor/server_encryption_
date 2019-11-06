@@ -4,17 +4,26 @@
     <meta charset="utf-8">
     <title>secure chat</title>
     {% block links %}
+    <style>
+      .btn-lg{
+        width:49%;
+      }
+    </style>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endblock %}
   </head>
   <body>
+  {% block body %}
+  <div class="container">
     <div class="jumbotron">
       {% block content %}
-      <h2>secure ,anonymous chat</h2>
+      <h1 class="text-center ">secure ,anonymous chat</h1><br>
       <a href="/login" role="button" class="btn btn-primary btn-lg">login</a>
-      <a href="{{ users.register }}" role="button" class="btn btn-success btn-lg">register</a>
+      <a href="/register" role="button" class="btn btn-success btn-lg">register</a>
       {% endblock %}
     </div>
+  </div>
+  {% endblock %}
   </body>
 </html>

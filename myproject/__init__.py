@@ -5,17 +5,18 @@ from flask_migrate import Migrate
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO, send, emit
+# from flask_socketio import SocketIO, send, emit
 
 
 app = Flask(__name__)
 
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 app.config['SECRET_KEY'] = 'mykeyasdfghjklsdfghnjm'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://codeXz:hpprobook450g3*@127.0.0.1/server_encryption_'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
+# app.config['RECAPTCHA_PUBLIC_KEY'] = '6LeLrKgUAAAAAJg9CiLKCdXH1igYZPw6m1rJ8X3o'
+# app.config['RECAPTCHA_PRIVATE_KEY'] = '6LeLrKgUAAAAAHE9JIIuXxvmN7TgubnMtpA7Jfpw'
 
 limiter = Limiter(
     app,
