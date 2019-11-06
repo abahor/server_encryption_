@@ -14,13 +14,13 @@ class LoginForm(FlaskForm):
 
 class RegisterationForm(FlaskForm):
     email = StringField('Email', validators=[InputRequired(), Email()], render_kw={'placeholder': 'Email'})
-    username = StringField('username', validators=[InputRequired()], render_kw={'placeholder': 'Username'})
+    # username = StringField('username', validators=[InputRequired()], render_kw={'placeholder': 'Username'})
     password = PasswordField('Password',
                              validators=[InputRequired(), EqualTo('pass_confirm', message='Passwords must match')],
                              render_kw={'placeholder': 'Password'})
     pass_confirm = PasswordField('Confirm Password',
                                  validators=[InputRequired()], render_kw={'placeholder': 'confirm password'})
-    recaptcha = RecaptchaField()
+    # recaptcha = RecaptchaField()
     submit = SubmitField('Register')
 
     def check_email(self, field):
