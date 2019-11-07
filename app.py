@@ -1,4 +1,4 @@
-from myproject import app,socketio
+from myproject import app# ,socketio
 
 
 if __name__ == '__main__':

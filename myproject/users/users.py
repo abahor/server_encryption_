@@ -1,25 +1,32 @@
 # normal login and register normal
-import datetime
+from datetime import *
 import random
 import string
-from flask_session import Session
+import time
+
 from flask import redirect, render_template, Blueprint, url_for, session, request, flash, abort
+# from myproject import Session
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_mail import Message
 from markupsafe import Markup
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from myproject import db, limiter
+from myproject import db  # , limiter
 from myproject import mail
-from myproject.models import Users
+from myproject.models import Users, active_users, authenticated_user
 from myproject.users.forms import updateForm, RegisterationForm, LoginForm, formRecover, changepassword, yourEmail, \
     confirmationForm
 
 users = Blueprint('users', __name__, template_folder='temp')
 
 
+def update_user_active_date(token):
+    user = authenticated_user.query.filter_by(token=token).first()
+    user.last_time_checked = datetime.utcnow()
+
+
 @users.route('/login', methods=['post', 'get'])
-@limiter.limit("30 per hour")
+# @limiter.limit("30 per hour")
 def login():
     form = LoginForm()
     if current_user.is_authenticated:
@@ -156,7 +163,7 @@ def forget():
                 msg = Message('reset Email',
                               sender="jousefgamal46@gmail.com",
                               recipients=[form.email.data])
-                session['verification'] = "".join(choice(string.digits) for x in range(randint(1, 12)))
+                session['verification'] = "".join(random.choice(string.digits) for x in range(random.randint(1, 12)))
                 link = f"http://127.0.0.1:5000/reset?de={session['verification']}"
                 msg.body = f"Here is the reset link copy it and put it into your browser to reset your password " \
                     f"http:/127.0.0.1/reset?de={session['verification']}'>reset password</a>"
@@ -195,6 +202,10 @@ def change():
         d = Users.query.filter_by(email=form.email.data).first()
         if check_password_hash(current_user.password, form.password.data):
             current_user.password = generate_password_hash(form.password_new.data)
+            try:
+                db.session.commit()
+            except:
+                db.rollback()
     return render_template('change_password.html', form=form)
 
 
@@ -240,11 +251,58 @@ def password_check():
 @users.route('/test')
 def test():
     d = request.args.get('te')
-    session['testing'] += '  ' + d
+    print(session['testing'])
+    session['testing'].append(d)
+    for i in session['testing']:
+        print(i)
     return 'added'
+
 
 @users.route('/get')
 def get():
-    get = session['testing']
+    # get = session['testing']
     print(session['testing'])
-    return session['testing']
+    return str(session['testing'])
+
+
+@users.route('/d')
+def d():
+    session['testing'] = []
+    return ''
+
+
+@users.route('/keep_alive')
+def keep_alive():
+    token = request.args.get('token')
+    update_user_active_date(token)
+    id = request.args.get('id')
+    sid = request.sid
+    if active_users.query.filter_by(user_id=id).first() is None:
+        active_users(user_id=id, request_sid=sid)
+    else:
+        current = active_users.query.filter_by(user_id=id)
+        current_user.date = datetime.utcnow()
+
+    return 'success'
+
+
+def check_if_user_is_authenticated():
+    d = authenticated_user.query.all()
+    for i in d:
+        if datetime.utcnow() - i.date > timedelta(hours=1):
+            db.session.delete(i)
+            db.session.commit()
+
+
+def update_the_active_users():
+    d = active_users.query.all()
+    for i in d:
+        if datetime.utcnow() - i.date > timedelta(seconds=10):
+            db.session.delete(i)
+            db.session.commit()
+
+
+while True:
+    time.sleep(10)
+    update_the_active_users()
+    check_if_user_is_authenticated()
