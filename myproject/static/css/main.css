@@ -1,0 +1,30 @@
+.login {
+    position: absolute;
+    float: right;
+    top: 8px;/*
+    right: 0;*/
+    right: 10px;
+    padding: 2px;
+    width: 75px;
+    border: none;
+    height: 34px;
+    box-shadow: 2px 2px 2px #0003;
+    border-radius: 3px;
+}
+.card {
+width:100%;
+
+}
+#hide {
+    display: none;
+}
+.btn-lg{
+        width:49%;
+}
+.head_name{
+   display: inline-block !important;/*
+margin:0 !important;*/
+}/*
+.oll{
+height:50px;
+}*/

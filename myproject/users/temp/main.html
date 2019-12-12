@@ -4,23 +4,48 @@
     <meta charset="utf-8">
     <title>secure chat</title>
     {% block links %}
-    <style>
-      .btn-lg{
-        width:49%;
-      }
-    </style>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
     {% endblock %}
   </head>
   <body>
+
+      <header>
+      <nav aria-label="breadcrumb" >
+  <ol class="breadcrumb">
+
+    <h4 class="breadcrumb-item head_name">Hire me</h4>
+    <li class="breadcrumb-item"><a href="{{ url_for('users.main') }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ url_for('users.about') }}">about</a></li>
+
+{% if current_user.is_authenticated %}
+  {% if current_user.employer %}
+      <li class="breadcrumb-item" ><a href="{{ url_for('users.account')}}">{{ current_user.email }}</a></li>
+  {% else %}
+      <li class="breadcrumb-item" ><a href="{{ url_for('users.account')}}">{{ current_user.email }}</a></li>
+  {% endif %}
+  <button class="float=right login"><a href="{{ url_for('users.logout') }}">Logout</a></button>
+  {% else %}
+<button class="float=right login"><a href="{{ url_for('users.login') }}">Login</a></button>
+{% endif %}
+  </ol>
+
+</nav>
+    </header>
+
+
   {% block body %}
   <div class="container">
     <div class="jumbotron">
       {% block content %}
       <h1 class="text-center ">secure ,anonymous chat</h1><br>
+      {% if current_user.is_authenticated %}
+        <p>download the app form here to start chat <a href="/static/app.exe">here</a></p>
+      {% else %}
       <a href="/login" role="button" class="btn btn-primary btn-lg">login</a>
       <a href="/register" role="button" class="btn btn-success btn-lg">register</a>
+      {% endif %}
       {% endblock %}
     </div>
   </div>

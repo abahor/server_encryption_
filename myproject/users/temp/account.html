@@ -1,33 +1,56 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<p>{{current_user.email }}</p>
+<!--<p>{{current_user.email }}</p>-->
 <form method="post" enctype="multipart/form-data">
-    {{ food.hidden_tag() }}
+    {# { form.hidden_tag() } #}
     {#
       <div class="form-group">
-        {{ food.username.label }}
-        { food.username(class='form-control') }}<br>
+        {{ form.username.label }}
+        {{ form.username(class='form-control') }}<br>
       </div>
-        {{ food.picture(class="pictured",id='media') }}<br>
+        {{ form.picture(class="pictured",id='media') }}<br>
     #}
-    <input type="text" name="" value="current_user.email" readonly>
-    <input type="text" name="" value="{{ current_user.myid }}" readonly>
-    {{ food.submit(class="btn btn-danger") }}
+    <div class="form-group">
+        <input type="text" name="" class="form-control" value="{{ current_user.email }}" readonly>
+    </div>
+    <div class="form-group">
+        <input type="text" name="" class="form-control" value="{{ current_user.myid }}" readonly>
+    </div>
+    {# { form.submit(class="btn btn-danger") } #}
     </form><br>
-    <button id="delete" type="button" name="button">Delete my account</button>
-    <a href="/change"><button class="btn btn-secondary">Change password</button></a><br>
+<a href="/change"><button class="btn btn-secondary">Change password</button></a><br>
+
+<button id="delete" class="btn" type="button" name="button" style="float:right">Delete my account</button>
 
 
+<div>
+    <h5>list of all your blocked user</h5>
+    {% for i in current_user.blocked_users %}
+        <div id="{{ i.blocked_user }}">{{ i.blocked_user }}</div>
+        <button onclick="unblock({{ i.blocked_user }})">unblock</button>
+    {% endfor %}
+</div>
 <script type="text/javascript">
-  var d = new XMLHttpRequest()
+<!--  var d = new XMLHttpRequest()-->
+<!--  d.onreadystatechange = function (){-->
+<!--    if (this.readyState == 4 && this.status == 200) {-->
+<!--       window.location = '{---s{ url_for('/logout',_external) }---s}'-->
+
+<!--  }-->
+<!--}-->
+<!--  d.open('post','/delete')-->
+<!--  d.send()-->
+ function unblock(id){
+    var d = new XMLHttpRequest()
   d.onreadystatechange = function (){
     if (this.readyState == 4 && this.status == 200) {
-       window.location = '{{ url_for('/logout',_external) }}'
+       $('#'+id).remove()
 
   }
 }
-  d.open('post','/delete')
+  d.open('post','/unblock?id='+id)
   d.send()
+ }
 </script>
 {% endblock %}
