@@ -5,7 +5,7 @@ import random
 import string
 import time
 
-from flask import redirect, render_template, Blueprint, url_for, session, request, flash, abort, jsonify
+from flask import redirect, render_template, Blueprint, url_for, session, request, flash, abort, jsonify, Response
 # from myproject import Session
 from flask_login import login_required, login_user, logout_user, current_user
 from flask_mail import Message
@@ -83,6 +83,12 @@ def register():
             print(session['confirmation'])
             messag.body = f"Here is the confirmation code copy it and put it into the confirmation box to  your password {session['confirmation']} "
             messag.html = render_template('/confirmationmail.html')
+            ser = Users(email=session['email'], password=session['password'],
+                        myid=generate_new_id())
+            db.session.add(ser)
+            db.session.commit()
+
+            # ---------------remove this when the internet come
             mail.send(messag)
             session['qwertyuiopdfghjkldfghjklsdfghjkfghjk'] = True
             return redirect(url_for('users.confirmation'))
@@ -153,10 +159,10 @@ def forget():
         return render_template('logged_in_already.html')
     form = yourEmail()
     if form.validate_on_submit():
-        print(form.email.data)
+        # print(form.email.data)
         d = Users.query.filter_by(email=form.email.data).first()
-        print(Users.query.filter_by(email='abahormelad@gmail.com').first().email)
-        print(d)
+        # print(Users.query.filter_by(email='abahormelad@gmail.com').first().email)
+        # print(d)
         if d is None:
             flash(Markup("<div class='alert alert-warning' role='alert'>this email doesn't related to any account try "
                          "<a href='/register'>register</a></div>"))
@@ -173,8 +179,8 @@ def forget():
                 msg.html = render_template('/resetpassword.html', link=link)
                 mail.send(msg)
                 flash(Markup('<div class="alert alert-success" role="alert">The email has been sent</div>'))
-            except:
-                abort(404)
+            except Exception as e:
+                abort(404, e)
     return render_template('forget-password.html', form=form)
 
 
@@ -194,7 +200,7 @@ def reset():
             else:
                 return render_template('recover.html', form=form)
     except Exception as e:
-        abort(404)
+        abort(404, e)
     return redirect('/')
 
 
@@ -210,8 +216,9 @@ def change():
             try:
                 db.session.commit()
                 flash('Password has been changed')
-            except:
+            except Exception as e:
                 db.rollback()
+                return abort(404, e)
     return render_template('change_password.html', form=form)
 
 
@@ -265,19 +272,21 @@ def password_check():
         d = request.args.get('c')
         print(d)
         print(user)
-        if user.check_password(d):
+        print(user.check_password(str(d)))
+        if user.check_password(str(d)):
             login_user(user)
             token = generate_new_id()
             p = authenticated_user.query.filter_by(user_id=user.myid).first()
             if p:
-                return abort(404)
+                return {'id': p.user_id, 'token': p.token}
             u = authenticated_user(user_id=user.myid, token=token)  #
             db.session.add(u)
             db.session.commit()
             return jsonify({'token': token, 'id': user.myid})
         else:
+            print('i am sad')
             return abort(404)
-    return 'end'
+    return abort(404)
 
 
 # @users.route('/test')
@@ -311,30 +320,49 @@ def privacy():
 @users.route('/keep_alive', methods=['POST'])
 def keep_alive():
     token = request.args.get('token')
-    if not authenticated_user.query.filter_by(token=token).first():
+    auth = authenticated_user.query.filter_by(token=token).first()
+    if not auth:
         return abort(404)
     # update_user_active_date(token)
-    id = request.args.get('id')
+    # id = request.args.get('id')
     sid = request.sid
-    if active_users.query.filter_by(user_id=id).first() is None:
-        act = active_users(user_id=id, request_sid=sid)
-        try:
-            db.session.add(act)
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            return abort(404,e)
+    try:
+        if session['user_active_keep_alive_id']:
+            user = active_users.query.get(session['user_active_keep_alive_id'])
+            user.date = datetime.utcnow()
+            auth.last_time_checked = datetime.utcnow()
+            try:
+                db.session.commit()
+            except:
+                db.session.rollback()
+                return abort(404)
+    except:
+        if active_users.query.filter_by(user_id=auth.user_id).first() is None:
+            try:
+                act = active_users(user_id=auth.user_id, request_sid=sid)
+                db.session.add(act)
+                auth.last_time_checked = datetime.utcnow()
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                return abort(404, e)
 
-    else:
-        try:
-            current = active_users.query.filter_by(user_id=id)
-            current.date = datetime.utcnow()
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            return abort(404,e)
+        else:
+            try:
+                current = active_users.query.filter_by(user_id=auth.user_id).first()
+                current.date = datetime.utcnow()
+                session['user_active_keep_alive_id'] = current.id
+                auth.last_time_checked = datetime.utcnow()
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                return abort(404, e)
 
-    return 'success'
+        if authenticated_user.query.filter_by(token=token):
+            auth = authenticated_user.query.filter_by(user_id=id).first()
+            auth.last_time_checked = datetime.utcnow()
+        return 'success'
+    return ''
 
 
 # def check_if_user_is_authenticated():
@@ -371,17 +399,28 @@ def keep_alive():
 @login_required
 def logout():
     logout_user()
+    user_id = request.args.get('id')
+    u = authenticated_user.query.filter_by(user_id=user_id).first()
+    try:
+        db.session.delete(u)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        return abort(404, e)
     return render_template('logout.html')
 
 
-@users.route('/seeifconnected')
-@login_required
-def seeifconnected():
-    hisid = request.args.get('connectid')
-    a = active_users.query.filter_by(user_id=hisid)
-    if a:
-        return 'success'
-    return ''
+# @users.route('/seeifconnected')
+# @login_required
+# def seeifconnected():
+#     hisid = request.args.get('connectid')
+#     token = request.args.get('token')
+#     if not authenticated_user.query.filter_by(token=token).first():
+#         return abort(404)
+#     a = active_users.query.filter_by(user_id=hisid)
+#     if a:
+#         return 'success'
+#     return ''
 
 
 @users.route('/unblock')
@@ -412,10 +451,10 @@ def if_logged_in():
         return abort(404)
 
 
-@users.route('/myid')
+@users.route('/myid', methods=['post'])
 def myid():
     token = request.args.get('token')
-    io = authenticated_user.query.filter_by(token).first()
+    io = authenticated_user.query.filter_by(token=token).first()
     if not io:
         return abort(404)
     de = Users.query.filter_by(myid=io.user_id).first()

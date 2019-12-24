@@ -5,14 +5,14 @@ from flask_migrate import Migrate
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_sqlalchemy import SQLAlchemy
-# from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO
 # from flask_session import Session
 
 app = Flask(__name__)
 
 # SESSION_TYPE = 'redis'
 # Session(app)
-# socketio = SocketIO(app)
+socket = SocketIO(app)
 app.config['SECRET_KEY'] = 'mykeyasdfghjklsdfghnjm'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://codeXz:hpprobook450g3*@127.0.0.1/server_encryption_'

@@ -2,27 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ada0a41c-1953-41b0-abcd-b4faf41abb49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/myproject/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/static/js/socketio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/users/temp/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/users/temp/forget-password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/users/temp/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myproject/users/temp/privacy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/handlers/hand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/socketio/chat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myproject/users/temp/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/socketio/handle_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/socketio/handle_connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/temp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/temp/change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/change_password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/temp/confirmationmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/confirmationmail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/temp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/users/temp/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/users/temp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/temp/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/users/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/users/users.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,15 +24,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myproject/users/users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="411" selection-start-line="411" selection-end-line="411" />
+            <state relative-caret-position="3434">
+              <caret line="219" column="29" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="29" />
               <folding>
                 <element signature="e#35#51#0" expanded="true" />
-                <element signature="e#5817#7342#0" />
-                <element signature="e#7410#7978#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myproject/handlers/hand.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myproject/users/temp/404.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myproject/users/temp/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ol#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,66 +81,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myproject/socketio/handle_connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/users/temp/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/users/temp/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="799">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="e#25#52#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/users/temp/main.html">
+        <entry file="file://$PROJECT_DIR$/myproject/socketio/chat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="391">
+              <caret line="29" column="85" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#34#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/static/css/register.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-193" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myproject/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="56" column="11" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="11" />
+            <state relative-caret-position="127">
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="39" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -121,22 +115,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/users/temp/account.html">
+        <entry file="file://$PROJECT_DIR$/myproject/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="79" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
+            <state relative-caret-position="170">
+              <caret line="17" column="109" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="109" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myproject/users/temp/change_password.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" selection-start-line="2" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -147,13 +132,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>regi</find>
-      <find>filter</find>
       <find>qwertyuiopdfghjkldfghjklsdfghjkfghjk</find>
       <find>generate_new_id</find>
       <find>confir</find>
@@ -162,12 +146,28 @@
       <find>generate_password_hash</find>
       <find>update_user_active_date</find>
       <find>blockedusers</find>
-      <find>/password</find>
       <find>change</find>
       <find>food</find>
       <find>username</find>
       <find>coo</find>
       <find>/myid</find>
+      <find>receive</find>
+      <find>.date</find>
+      <find>active_users.query</find>
+      <find>active_users.query.filter_by(</find>
+      <find>active_users</find>
+      <find>/passw</find>
+      <find>abort</find>
+      <find>login_</find>
+      <find>login_re</find>
+      <find>authenticated</find>
+      <find>auth.date</find>
+      <find>first</find>
+      <find>authenticated_user</find>
+      <find>/keep</find>
+      <find>register</find>
+      <find>/password</find>
+      <find>/pass</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,26 +179,29 @@
         <option value="$USER_HOME$/Desktop/diycopy/myproject/models.py" />
         <option value="$PROJECT_DIR$/myproject/users/temp/privacy.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/forget-password.html" />
-        <option value="$PROJECT_DIR$/myproject/socketio/handle_connection.py" />
         <option value="$PROJECT_DIR$/myproject/users/forms.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/myproject/static/css/socketio.js" />
         <option value="$PROJECT_DIR$/myproject/users/temp/change_password.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/logout.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/confirmationmail.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/register.html" />
         <option value="$PROJECT_DIR$/myproject/static/css/main.css" />
-        <option value="$PROJECT_DIR$/myproject/users/temp/main.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/account.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/login.html" />
         <option value="$PROJECT_DIR$/myproject/users/temp/about.html" />
+        <option value="$PROJECT_DIR$/myproject/socketio/chat.py" />
+        <option value="$PROJECT_DIR$/myproject/socketio/handle_connection.py" />
         <option value="$PROJECT_DIR$/myproject/models.py" />
+        <option value="$PROJECT_DIR$/myproject/users/temp/main.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/myproject/handlers/hand.py" />
+        <option value="$PROJECT_DIR$/myproject/users/temp/404.html" />
         <option value="$PROJECT_DIR$/myproject/__init__.py" />
         <option value="$PROJECT_DIR$/myproject/users/users.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="651" />
     <option name="y" value="21" />
     <option name="width" value="697" />
@@ -226,7 +229,27 @@
               <item name="server_encryption_" type="b2602c69:ProjectViewProjectNode" />
               <item name="server_encryption_" type="462c0819:PsiDirectoryNode" />
               <item name="myproject" type="462c0819:PsiDirectoryNode" />
-              <item name="socketio" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server_encryption_" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server_encryption_" type="462c0819:PsiDirectoryNode" />
+              <item name="myproject" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server_encryption_" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server_encryption_" type="462c0819:PsiDirectoryNode" />
+              <item name="myproject" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server_encryption_" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server_encryption_" type="462c0819:PsiDirectoryNode" />
+              <item name="myproject" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server_encryption_" type="b2602c69:ProjectViewProjectNode" />
@@ -243,9 +266,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myproject/users/temp" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rolan cemter\github\server_encryption_\myproject\users\temp" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rolan cemter\github\server_encryption_\myproject\static\js" />
     </key>
@@ -262,7 +289,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server_encryption_" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dd (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server_encryption_" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -286,6 +334,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.dd (2)" />
       </list>
     </recent_temporary>
@@ -317,10 +366,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.05952381" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.502439" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -331,28 +379,28 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.8229167" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.17708333" side_tool="true" visible="true" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.82217264" visible="true" weight="0.32405892" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.17782739" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.122023806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.502439" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49925596" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4985119" visible="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014881" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.82217264" weight="0.32405892" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.17782739" side_tool="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -483,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myproject/static/js/socketio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -532,6 +573,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/users/temp/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/static/css/register.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/myproject/users/temp/account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -544,15 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myproject/users/temp/change_password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="34">
           <caret line="2" selection-start-line="2" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/users/temp/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -566,29 +610,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/static/css/register.css">
+    <entry file="file://$PROJECT_DIR$/myproject/users/users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193" />
+        <state relative-caret-position="3434">
+          <caret line="219" column="29" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="29" />
+          <folding>
+            <element signature="e#35#51#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/users/temp/about.html">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="187">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/handlers/hand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/users/temp/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/users/temp/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ol#0;n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myproject/socketio/handle_connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        <state relative-caret-position="799">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#25#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/socketio/chat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="85" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myproject/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="170">
+          <caret line="17" column="109" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="109" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -597,22 +686,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myproject/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="11" />
+        <state relative-caret-position="127">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="39" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/users/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="411" selection-start-line="411" selection-end-line="411" />
-          <folding>
-            <element signature="e#35#51#0" expanded="true" />
-            <element signature="e#5817#7342#0" />
-            <element signature="e#7410#7978#0" />
           </folding>
         </state>
       </provider>

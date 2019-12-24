@@ -43,7 +43,7 @@ class BlockedUsers(db.Model):
 class active_users(db.Model):
     __tablename__ = 'active_users'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.String(48), db.ForeignKey('users.myid'), nullable=False)
+    user_id = db.Column(db.String(48), db.ForeignKey('users.myid'), nullable=False, index=True)
     request_sid = db.Column(db.String(120), unique=True, nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
@@ -54,6 +54,10 @@ class active_users(db.Model):
 
 class authenticated_user(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.String(48), db.ForeignKey('users.myid'), nullable=False)
-    token = db.Column(db.String(48))
+    user_id = db.Column(db.String(48), db.ForeignKey('users.myid'), nullable=False, index=True)
+    token = db.Column(db.String(48), unique=True, index=True)
     last_time_checked = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __init__(self, user_id, token):
+        self.user_id = user_id
+        self.token = token

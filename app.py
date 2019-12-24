@@ -1,4 +1,11 @@
-from myproject import app# ,socketio
+from myproject import app  # ,socketio
+from flask import Response, render_template
+
+
+@app.errorhandler(404)
+def not_found(e):
+    resp = Response(render_template('404.html'), status=404)
+    return resp
 
 
 if __name__ == '__main__':
