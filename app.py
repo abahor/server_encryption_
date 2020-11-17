@@ -7,7 +7,8 @@ def not_found(e):
     resp = Response(render_template('404.html'), status=404)
     return resp
 
-# sad 
+
+# sad
 if __name__ == '__main__':
     # socketio.run(app)
     app.run(debug=True)
