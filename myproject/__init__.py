@@ -15,7 +15,7 @@ app = Flask(__name__)
 socket = SocketIO(app)
 app.config['SECRET_KEY'] = 'mykeyasdfghjklsdfghnjm'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://codeXz:hpprobook450g3*@127.0.0.1/server_encryption_'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://codeXz:password*@127.0.0.1/server_encryption_'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # app.config['RECAPTCHA_PUBLIC_KEY'] = '6LeLrKgUAAAAAJg9CiLKCdXH1igYZPw6m1rJ8X3o'
 # app.config['RECAPTCHA_PRIVATE_KEY'] = '6LeLrKgUAAAAAHE9JIIuXxvmN7TgubnMtpA7Jfpw'
@@ -31,8 +31,8 @@ app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME='mohsengamal100@gmail.com',
-    MAIL_PASSWORD='mohsen123456789'
+    MAIL_USERNAME='mail@gmail.com',
+    MAIL_PASSWORD='mailpassword'
 )
 
 mail = Mail(app)
